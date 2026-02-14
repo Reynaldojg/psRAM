@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EAA46B62-2A11-4A33-9515-ED337B8CF3DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1689533B-8923-4FA9-BF06-21EBF1818728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psRAM_Domain", "psRAM_Domain\psRAM_Domain.csproj", "{363C83A0-BEBE-4793-86B5-94205F0F179E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psRAM_Application", "psRAM_Application\psRAM_Application.csproj", "{472EAEEF-FDBD-4EAA-9382-12F4CBD55096}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DCB14922-6A9D-4462-AB90-3A9CEC36B68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psRAM_Infraestructure", "psRAM_Infraestructure\psRAM_Infraestructure.csproj", "{87B3314E-67E9-4960-AC4A-F69E766DF445}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{D25BF29E-690C-4082-805C-2784C22C2635}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psRAM_View", "psRAM_View\psRAM_View.csproj", "{E8223BFB-E93D-405B-8E23-320FAAADA4D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{363C83A0-BEBE-4793-86B5-94205F0F179E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363C83A0-BEBE-4793-86B5-94205F0F179E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363C83A0-BEBE-4793-86B5-94205F0F179E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363C83A0-BEBE-4793-86B5-94205F0F179E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472EAEEF-FDBD-4EAA-9382-12F4CBD55096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472EAEEF-FDBD-4EAA-9382-12F4CBD55096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472EAEEF-FDBD-4EAA-9382-12F4CBD55096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472EAEEF-FDBD-4EAA-9382-12F4CBD55096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B3314E-67E9-4960-AC4A-F69E766DF445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B3314E-67E9-4960-AC4A-F69E766DF445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B3314E-67E9-4960-AC4A-F69E766DF445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B3314E-67E9-4960-AC4A-F69E766DF445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8223BFB-E93D-405B-8E23-320FAAADA4D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8223BFB-E93D-405B-8E23-320FAAADA4D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8223BFB-E93D-405B-8E23-320FAAADA4D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8223BFB-E93D-405B-8E23-320FAAADA4D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1689533B-8923-4FA9-BF06-21EBF1818728} = {EAA46B62-2A11-4A33-9515-ED337B8CF3DA}
+		{363C83A0-BEBE-4793-86B5-94205F0F179E} = {1689533B-8923-4FA9-BF06-21EBF1818728}
+		{472EAEEF-FDBD-4EAA-9382-12F4CBD55096} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{87B3314E-67E9-4960-AC4A-F69E766DF445} = {DCB14922-6A9D-4462-AB90-3A9CEC36B68C}
+		{E8223BFB-E93D-405B-8E23-320FAAADA4D5} = {D25BF29E-690C-4082-805C-2784C22C2635}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51DC4680-854E-4592-9124-34A2CE3BC92B}
+	EndGlobalSection
+EndGlobal
