@@ -8,8 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Busquedas\" />
-    <Folder Include="Entities\Reglas\" />
     <Folder Include="Enums\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
