@@ -11,4 +11,8 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\psRAM_Domain\psRAM_Domain.csproj" />
+  </ItemGroup>
+
 </Project>

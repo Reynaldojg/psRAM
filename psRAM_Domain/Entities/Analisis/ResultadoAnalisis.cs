@@ -1,5 +1,6 @@
 ﻿using psRAM_Domain.Entities.Artefactos;
 using psRAM_Domain.Entities.Seguridad;
+using psRAM_Domain.Enums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace psRAM_Domain.Entities.Analisis
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
-        public string SistemaOperativo { get; set; }
+        public SistemaOperativo SistemaOperativo { get; set; }
         public string HashImagen { get; set; }
         public ICollection Procesos { get; set; }
         public ICollection Archivos { get; set; }

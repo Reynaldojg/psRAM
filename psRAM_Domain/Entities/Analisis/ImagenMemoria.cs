@@ -1,4 +1,5 @@
-﻿using System;
+﻿using psRAM_Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace psRAM_Domain.Entities.Analisis
         public int Id { get; set; }
         public string Ruta { get; set; }
         public string Hash { get; set; }
-        public string SistemaOperativo { get; set; }
+        public SistemaOperativo SistemaOperativo { get; set; }
         public long TamanoBytes { get; set; }
     }
 }

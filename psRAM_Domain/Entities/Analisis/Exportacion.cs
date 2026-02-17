@@ -1,4 +1,5 @@
 ﻿using psRAM_Domain.Entities.Base;
+using psRAM_Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace psRAM_Domain.Entities.Analisis
 {
     public class Exportacion : AnalisisBase
     {
-        public string Tipo { get; set; } // CSV, TXT, HTML
+        public TipoExportacion Tipo { get; set; } // CSV, TXT, HTML
         public DateTime Fecha { get; set; }
         public string RutaArchivo { get; set; }
 
