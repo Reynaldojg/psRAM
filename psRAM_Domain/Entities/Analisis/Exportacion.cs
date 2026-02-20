@@ -13,7 +13,5 @@ namespace psRAM_Domain.Entities.Analisis
         public TipoExportacion Tipo { get; set; } // CSV, TXT, HTML
         public DateTime Fecha { get; set; }
         public string RutaArchivo { get; set; }
-
-
     }
 }

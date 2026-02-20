@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DTOS\ArtefactosDtos\" />
+    <Folder Include="DTOS\BusquedasDtos\" />
+    <Folder Include="DTOS\SeguridadDtos\" />
+    <Folder Include="DTOS\ReglasDtos\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
