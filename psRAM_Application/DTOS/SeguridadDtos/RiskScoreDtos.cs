@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using psRAM_Application.DTOS.BaseDTOS;
 using psRAM_Domain.Enums;
 
-namespace psRAM_Application.DTOS.AnalisisDTOS
+namespace psRAM_Application.DTOS.SeguridadDtos
 {
-    public class ExportacionDtos:Dtos
+    public class RiskScoreDtos
     {
-        public TipoExportacion Tipo {  get; set; }
-        public DateTime fecha { get; set; }
-        public string? RutaArchivo {  get; set; }
+        public int Valor {  get; set; }
+        public NivelRiesgo Nivel {  get; set; }
+        public string? Justifiacion { get; set; }
         public int ResultadoAnalisisId {  get; set; }
-
     }
 }

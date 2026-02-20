@@ -9,9 +9,9 @@ namespace psRAM_Application.DTOS.AnalisisDTOS
 {
     public class PuglinEjecutadoDtos : Dtos
     {
-        public string Nombre {  get; set; }
+        public string? Nombre {  get; set; }
         public DateTime FechaEjecucion {  get; set; }
-        public string Duracion { get; set; }
+        public string? Duracion { get; set; }
 
 
     }
