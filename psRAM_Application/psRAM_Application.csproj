@@ -10,7 +10,8 @@
   <ItemGroup>
     <Folder Include="DTOS\BusquedasDtos\" />
     <Folder Include="DTOS\ReglasDtos\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\IServices\IBusquedas\" />
+    <Folder Include="Interfaces\IServices\IReglas\" />
   </ItemGroup>
 
   <ItemGroup>
