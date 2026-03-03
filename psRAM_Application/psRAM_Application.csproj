@@ -12,6 +12,8 @@
     <Folder Include="DTOS\ReglasDtos\" />
     <Folder Include="Interfaces\IServices\IBusquedas\" />
     <Folder Include="Interfaces\IServices\IReglas\" />
+    <Folder Include="Services\BusquedasServices\" />
+    <Folder Include="Services\ReglasServices\" />
   </ItemGroup>
 
   <ItemGroup>
