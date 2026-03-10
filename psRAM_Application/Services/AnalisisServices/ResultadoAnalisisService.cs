@@ -1,29 +1,94 @@
-﻿using psRAM_Application.DTOS.AnalisisDTOS;
+﻿using Microsoft.Extensions.Logging;
+using psRAM_Application.DTOS.AnalisisDTOS;
+using psRAM_Application.Interfaces.IPersistencia;
 using psRAM_Application.Interfaces.IServices.IAnalisis;
+using psRAM_Domain.Entities.Analisis;
 using psRAM_Domain.Entities.Base.Operation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace psRAM_Application.Services.AnalisisServices
 {
-    public class ResultadoAnalisisService : IResultadoAnalisisService
+    public sealed class ResultadoAnalisisService : IResultadoAnalisisService
     {
-        public Task<OperationResult<int>> CrearAsync(ResultadoAnalisisDto dto)
+        private readonly IApplicationDbContext _context;
+        private readonly ILogger<ResultadoAnalisisService> _logger;
+
+        public ResultadoAnalisisService(IApplicationDbContext context, ILogger<ResultadoAnalisisService> logger)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _logger = logger;
         }
 
-        public Task<OperationResult<ResultadoAnalisisDto>> ObtenerPorIdAsync(int id)
+        public async Task<OperationResult<int>> CrearAsync(ResultadoAnalisisDto dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (dto == null)
+                    return OperationResult<int>.Failure("El DTO no puede ser nulo");
+
+                var entidad = new ResultadoAnalisis
+                {
+                    HashImagen = dto.HashImagen,
+                    SistemaOperativo = dto.SistemaOperativo,
+                    Fecha = DateTime.Now
+                };
+
+                _context.ResultadosAnalisis.Add(entidad);
+                await _context.SaveChangesAsync();
+
+                return OperationResult<int>.Success(entidad.Id, "Resultado creado correctamente");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al crear resultado");
+                return OperationResult<int>.Failure("Error interno al crear resultado");
+            }
+        }
+
+        public async Task<OperationResult<ResultadoAnalisisDto>> ObtenerPorIdAsync(int id)
+        {
+            try
+            {
+                var entidad = await _context.ResultadosAnalisis.FindAsync(id);
+                if (entidad == null)
+                    return OperationResult<ResultadoAnalisisDto>.Failure("No se encontró el resultado");
+
+                var dto = new ResultadoAnalisisDto
+                {
+                    Id = entidad.Id,
+                    HashImagen = entidad.HashImagen,
+                    SistemaOperativo = entidad.SistemaOperativo,
+                    Fecha = entidad.Fecha
+                };
+
+                return OperationResult<ResultadoAnalisisDto>.Success(dto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener resultado");
+                return OperationResult<ResultadoAnalisisDto>.Failure("Error interno al obtener resultado");
+            }
         }
 
         public Task<OperationResult<IEnumerable<ResultadoAnalisisDto>>> ObtenerTodosAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var lista = _context.ResultadosAnalisis
+                    .Select(r => new ResultadoAnalisisDto
+                    {
+                        Id = r.Id,
+                        HashImagen = r.HashImagen,
+                        SistemaOperativo = r.SistemaOperativo,
+                        Fecha = r.Fecha
+                    }).ToList();
+
+                return Task.FromResult(OperationResult<IEnumerable<ResultadoAnalisisDto>>.Success(lista));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener todos los resultados");
+                return Task.FromResult(OperationResult<IEnumerable<ResultadoAnalisisDto>>.Failure("Error interno al obtener resultados"));
+            }
         }
     }
 }
