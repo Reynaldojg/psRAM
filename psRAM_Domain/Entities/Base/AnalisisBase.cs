@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace psRAM_Domain.Entities.Base
 {
-    public abstract class AnalisisBase : OperationResult
+    public abstract class AnalisisBase : OperationResult<object>
     {
         public int Id {  get; set; }
         public ResultadoAnalisis ResultadoAnalisis { get; set; }

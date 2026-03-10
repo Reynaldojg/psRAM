@@ -1,27 +1,59 @@
+﻿using Microsoft.EntityFrameworkCore;
+using psRAM_Infrastructure.Persistence;
+using psRAM_Application.Interfaces.IPersistencia;
+using psRAM_Application.Interfaces.IServices.IAnalisis;
+using psRAM_Application.Interfaces.IServices.IArtefactos;
+using psRAM_Application.Interfaces.IServices.ISeguridad;
+using psRAM_Application.Services.AnalisisServices;
+using psRAM_Application.Services.ArtefactosServices;
+using psRAM_Application.Services.SeguridadServices;
+using Microsoft.AspNetCore.Builder;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// 🔹 Conexión a la base de datos
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// 🔹 Inyección de dependencias
+builder.Services.AddScoped<IApplicationDbContext>(provider =>
+{
+    var dbContext = provider.GetService<ApplicationDbContext>();
+    if (dbContext is null)
+    {
+        throw new InvalidOperationException("ApplicationDbContext is not registered in the DI container.");
+    }
+    return dbContext;
+});
+
+// --- Servicios de Análisis ---
+builder.Services.AddScoped<IResultadoAnalisisService, ResultadoAnalisisService>();
+builder.Services.AddScoped<IPuglinEjecutadoService, PuglinEjecutadoService>();
+builder.Services.AddScoped<IExportacionService, ExportacionService>();
+builder.Services.AddScoped<IImagenMemoriaService, ImagenMemoriaService>();
+
+// --- Servicios de Artefactos ---
+builder.Services.AddScoped<IArchivoService, ArchivoService>();
+builder.Services.AddScoped<IProcesoService, ProcesoService>();
+
+// --- Servicios de Seguridad ---
+builder.Services.AddScoped<IRisKcoreService, RiskScoreService>();
+
+// 🔹 Configuración de API
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// 🔹 Middleware
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwagger();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapControllers();
 app.Run();

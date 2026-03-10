@@ -5,8 +5,7 @@ using psRAM_Domain.Entities.Artefactos;
 using psRAM_Domain.Entities.Busquedas;
 using psRAM_Domain.Entities.Reglas;
 using psRAM_Domain.Entities.Seguridad;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace psRAM_Infrastructure.Persistence
 {
