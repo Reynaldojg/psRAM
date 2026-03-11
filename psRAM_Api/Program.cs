@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using psRAM_Infrastructure.Persistence;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using psRAM_Api;
 using psRAM_Application.Interfaces.IPersistencia;
 using psRAM_Application.Interfaces.IServices.IAnalisis;
 using psRAM_Application.Interfaces.IServices.IArtefactos;
@@ -7,7 +8,7 @@ using psRAM_Application.Interfaces.IServices.ISeguridad;
 using psRAM_Application.Services.AnalisisServices;
 using psRAM_Application.Services.ArtefactosServices;
 using psRAM_Application.Services.SeguridadServices;
-using Microsoft.AspNetCore.Builder;
+using psRAM_Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,9 @@ builder.Services.AddScoped<IRisKcoreService, RiskScoreService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// --- Ejecutor de Python ---
+builder.Services.AddSingleton<PythonExecutor>();
 
 var app = builder.Build();
 
