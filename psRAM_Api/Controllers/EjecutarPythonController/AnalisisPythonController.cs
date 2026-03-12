@@ -13,11 +13,11 @@ namespace psRAM_Api.Controllers.EjecutarPythonController
             _executor = executor;
         }
 
-        [HttpGet("ejecutar/{param}")]
-        public IActionResult Ejecutar(string param)
+        [HttpGet("ejecutar")]
+        public IActionResult Ejecutar([FromQuery] string argumentos)
         {
-            var resultado = _executor.EjecutarScript(param);
-            return Ok(new { parametro = param, salidaPython = resultado });
+            var resultado = _executor.EjecutarScript(argumentos);
+            return Ok(new { parametro = argumentos, salidaPython = resultado });
         }
     }
 }
