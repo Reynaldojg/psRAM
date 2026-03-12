@@ -16,9 +16,4 @@
     <ProjectReference Include="..\psRAM_Domain\psRAM_Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Persistence\Configurations\BusquedasConfi\" />
-    <Folder Include="Persistence\Configurations\ReglasConfi\" />
-  </ItemGroup>
-
 </Project>

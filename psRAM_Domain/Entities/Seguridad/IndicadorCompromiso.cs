@@ -13,5 +13,7 @@ namespace psRAM_Domain.Entities.Seguridad
         public string Ruta { get; set; }
         public string Hash { get; set; }
         public string FirmaDigital { get; set; }
+
+        public DateTime FechaDeteccion { get; set; }
     }
 }
