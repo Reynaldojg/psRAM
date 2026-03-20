@@ -19,7 +19,10 @@ namespace psRAM_API.Controllers
         public async Task<IActionResult> Exportar([FromQuery] int resultadoAnalisisId, [FromQuery] TipoExportacion tipo)
         {
             var result = await _service.ExportarResultadoAsync(resultadoAnalisisId, tipo);
-            if (!result.IsSuccess) return BadRequest(result.Message);
+
+            if (!result.IsSuccess)
+                return BadRequest(new { message = result.Message });
+
             return Ok(result);
         }
     }

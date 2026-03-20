@@ -1,16 +1,14 @@
 ﻿using psRAM_Application.DTOS.BaseDTOS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
-namespace psRAM_Application.DTOS.ReglasDtos
+public class ReglaYARADtos : Dtos
 {
-    public class ReglaYARADtos : Dtos
-    {
-        public string? Nombre { get; set; }
-        public string? Contenido { get; set; }
-        public string? Etiquetas { get; set; }
-    }
+    [JsonPropertyName("nombre")]
+    public string? Nombre { get; set; }
+
+    [JsonPropertyName("contenido")]
+    public string? Contenido { get; set; }
+
+    [JsonPropertyName("etiquetas")]
+    public string? Etiquetas { get; set; }
 }

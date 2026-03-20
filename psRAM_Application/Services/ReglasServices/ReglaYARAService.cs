@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using psRAM_Application.Interfaces.IPersistencia;
 using psRAM_Application.Interfaces.IServices.IReglas;
-using psRAM_Application.DTOS.ReglasDtos;
 using psRAM_Domain.Entities.Base.Operation;
 using psRAM_Domain.Entities.Reglas;
 using System.Collections.Generic;

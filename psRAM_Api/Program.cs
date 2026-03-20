@@ -45,8 +45,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// --- Ejecutor de Python ---
-builder.Services.AddSingleton<PythonExecutor>();
+// --connsulta api Python---
+builder.Services.AddHttpClient<IPythonAnalisisService, PythonAnalisisService>();
 
 var app = builder.Build();
 

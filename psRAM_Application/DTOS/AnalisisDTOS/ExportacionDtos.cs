@@ -1,19 +1,27 @@
-﻿using System;
+﻿using psRAM_Application.DTOS.BaseDTOS;
+using psRAM_Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using psRAM_Application.DTOS.BaseDTOS;
-using psRAM_Domain.Enums;
 
 namespace psRAM_Application.DTOS.AnalisisDTOS
 {
-    public class ExportacionDtos:Dtos
+    public class ExportacionDtos : Dtos
     {
-        public TipoExportacion Tipo {  get; set; }
-        public DateTime fecha { get; set; }
-        public string? RutaArchivo {  get; set; }
-        public int ResultadoAnalisisId {  get; set; }
+        [JsonPropertyName("tipo")]
+        public TipoExportacion Tipo { get; set; }
 
+        [JsonPropertyName("fecha")]
+        public DateTime Fecha { get; set; }
+
+        [JsonPropertyName("ruta_archivo")]
+        public string? RutaArchivo { get; set; }
+
+        [JsonPropertyName("resultado_analisis_id")]
+        public int ResultadoAnalisisId { get; set; }
     }
+
 }

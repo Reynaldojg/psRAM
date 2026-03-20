@@ -8,4 +8,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HIC.System.Windows.Forms.DataVisualization" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\psRAM_Api\psRAM_Api.csproj" />
+    <ProjectReference Include="..\psRAM_Application\psRAM_Application.csproj" />
+    <ProjectReference Include="..\psRAM_Infraestructure\psRAM_Infraestructure.csproj" />
+  </ItemGroup>
+
 </Project>

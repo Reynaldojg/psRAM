@@ -1,0 +1,81 @@
+﻿@page
+@using psRAM_Application.DTOS.ArtefactosDtos
+@model DashboardModel
+@{
+    var data = Model.ViewDataModel;
+}
+
+<button id="btnAnalizar" type="submit" formmethod="post" formaction="/Dashboard?handler=Analizar">Analizar archivo</button>
+
+<header>
+    <div class="status normal">Normal: @data?.Normal</div>
+    <div class="status sospechoso">Sospechosos: @data?.Sospechosos</div>
+    <div class="status critico">Críticos: @data?.Criticos</div>
+</header>
+
+<div id="container">
+    <aside id="mapa">
+        <h3>Correlation Map</h3>
+        <ul>
+            @if (data?.Resultado?.Procesos != null)
+            {
+                foreach (var p in data.Resultado.Procesos)
+                {
+                    // Replace 'Riesgo' with the correct property name that exists in ProcesoDtos
+                    <li>@p.Nombre</li>
+                }
+            }
+        </ul>
+    </aside>
+
+    <main id="contenido">
+        <nav>
+            <button class="active" onclick="showTab('info')">Información</button>
+            <button onclick="showTab('procesos')">Procesos</button>
+            <button onclick="showTab('riesgo')">Riesgo</button>
+        </nav>
+
+        <div id="info" class="tab active">
+            <p>Fecha: @data?.Resultado?.Fecha</p>
+            <p>SO: @data?.Resultado?.SistemaOperativo</p>
+            <p>Hash: @data?.Resultado?.HashImagen</p>
+        </div>
+
+        <div id="procesos" class="tab">
+            <table>
+                <tr><th>PID</th><th>Nombre</th><th>Riesgo</th></tr>
+                @foreach (var p in data?.Resultado?.Procesos ?? new List<ProcesoDtos>())
+                {
+                    // Replace 'Riesgo' with the correct property name that exists in ProcesoDtos
+                    var color = "lightgreen";
+                    <tr>
+                        <td>@p.Pid</td>
+                        <td>@p.Nombre</td>
+                        <td style="background:@color;"></td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div id="riesgo" class="tab">
+            <canvas id="chartRiesgo"></canvas>
+        </div>
+    </main>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('chartRiesgo').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Normal', 'Sospechosos', 'Críticos'],
+                datasets: [{
+                    data: [@data?.Normal ?? 0, @data?.Sospechosos ?? 0, @data?.Criticos ?? 0],
+                    backgroundColor: ['green', 'gold', 'red']
+                }]
+            }
+        });
+    </script>
+}

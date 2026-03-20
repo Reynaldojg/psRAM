@@ -19,7 +19,10 @@ namespace psRAM_API.Controllers
         public async Task<IActionResult> Calcular(int resultadoAnalisisId)
         {
             var result = await _service.CalcularRiskCore(resultadoAnalisisId);
-            if (!result.IsSuccess) return BadRequest(result.Message);
+
+            if (!result.IsSuccess)
+                return BadRequest(new { message = result.Message });
+
             return Ok(result);
         }
     }

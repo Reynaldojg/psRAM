@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace psRAM_Application.DTOS.ArtefactosDtos
@@ -11,7 +12,12 @@ namespace psRAM_Application.DTOS.ArtefactosDtos
     {
         public string? Nombre { get; set; }
         public string? Ruta { get; set; }
-        public string? Hash { get; set; }
         public string? FirmaDigital { get; set; }
+
+        // 🔹 Agregar hashes
+        public string? HashMD5 { get; set; }
+        public string? HashSHA1 { get; set; }
+        public string? HashSHA256 { get; set; }
     }
+
 }

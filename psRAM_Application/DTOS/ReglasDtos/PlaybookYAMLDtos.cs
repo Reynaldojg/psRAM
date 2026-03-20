@@ -1,16 +1,14 @@
 ﻿using psRAM_Application.DTOS.BaseDTOS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
-namespace psRAM_Application.DTOS.ReglasDtos
+public class PlaybookYAMLDtos : Dtos
 {
-    public class PlaybookYAMLDtos : Dtos
-    {
-        public string? Nombre { get; set; }
-        public string? Descripcion { get; set; }
-        public string? ContenidoYAML { get; set; }
-    }
+    [JsonPropertyName("nombre")]
+    public string? Nombre { get; set; }
+
+    [JsonPropertyName("descripcion")]
+    public string? Descripcion { get; set; }
+
+    [JsonPropertyName("contenido_yaml")]
+    public string? ContenidoYAML { get; set; }
 }

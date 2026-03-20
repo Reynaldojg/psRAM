@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using psRAM_Application.Interfaces.IServices.IReglas;
-using psRAM_Application.DTOS.ReglasDtos;
 using System.Threading.Tasks;
 
 namespace psRAM_API.Controllers

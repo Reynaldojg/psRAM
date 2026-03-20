@@ -1,4 +1,4 @@
-﻿using psRAM_Application.DTOS.ReglasDtos;
+﻿
 using psRAM_Domain.Entities.Base.Operation;
 using System;
 using System.Collections.Generic;

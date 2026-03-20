@@ -1,10 +1,4 @@
-﻿using psRAM_Application.DTOS.ReglasDtos;
-using psRAM_Domain.Entities.Base.Operation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using psRAM_Domain.Entities.Base.Operation;
 
 namespace psRAM_Application.Interfaces.IServices.IReglas
 {
