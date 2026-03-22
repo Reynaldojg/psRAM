@@ -12,12 +12,10 @@ namespace psRAM_Application.DTOS.ArtefactosDtos
     {
         public string? Nombre { get; set; }
         public string? Ruta { get; set; }
-        public string? FirmaDigital { get; set; }
-
-        // 🔹 Agregar hashes
         public string? HashMD5 { get; set; }
         public string? HashSHA1 { get; set; }
         public string? HashSHA256 { get; set; }
+        public int? Pid { get; set; }
     }
 
 }

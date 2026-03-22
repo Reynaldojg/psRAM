@@ -10,20 +10,12 @@ namespace psRAM_Application.DTOS.ArtefactosDtos
 {
     public class ConexionRedDtos : Dtos
     {
-        [JsonPropertyName("ip_origen")]
         public string? IpOrigen { get; set; }
-
-        [JsonPropertyName("ip_destino")]
-        public string? IpDestino { get; set; }
-
-        [JsonPropertyName("puerto_origen")]
         public int PuertoOrigen { get; set; }
-
-        [JsonPropertyName("puerto_destino")]
+        public string? IpDestino { get; set; }
         public int PuertoDestino { get; set; }
-
-        [JsonPropertyName("protocolo")]
         public string? Protocolo { get; set; }
+        public int Pid { get; set; }
     }
 
 }

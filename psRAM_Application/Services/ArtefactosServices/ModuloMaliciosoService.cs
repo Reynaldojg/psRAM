@@ -24,9 +24,12 @@ namespace psRAM_Application.Services.ArtefactosServices
         {
             try
             {
-                var modulos = _context.ModulosMaliciosos
-                    .Where(m => m.ResultadoAnalisisId == resultadoAnalisisId)
-                    .ToList();
+                // Use Task.Run to make the method truly asynchronous if only synchronous APIs are available
+                var modulos = await Task.Run(() =>
+                    _context.ModulosMaliciosos
+                        .Where(m => m.ResultadoAnalisisId == resultadoAnalisisId)
+                        .ToList()
+                );
 
                 return OperationResult<IEnumerable<ModuloMaliciosoDtos>>.Success(modulos, "Módulos obtenidos correctamente");
             }

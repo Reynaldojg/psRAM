@@ -12,14 +12,12 @@ namespace psRAM_Application.DTOS.ArtefactosDtos
     {
         public int Pid { get; set; }
         public string? Nombre { get; set; }
+        public int ParentPid { get; set; }
         public string? Usuario { get; set; }
-        public int? ParentPid { get; set; }
-        public int ResultadoAnalisisId { get; set; }
-
-        // 🔹 Agregar hashes para mapear el JSON
         public string? HashMD5 { get; set; }
         public string? HashSHA1 { get; set; }
         public string? HashSHA256 { get; set; }
+        public int ResultadoAnalisisId { get; set; }
 
     }
 

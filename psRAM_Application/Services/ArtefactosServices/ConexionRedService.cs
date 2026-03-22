@@ -24,9 +24,20 @@ namespace psRAM_Application.Services.ArtefactosServices
         {
             try
             {
-                var conexiones = _context.ConexionesRed
-                    .Where(c => c.ResultadoAnalisisId == resultadoAnalisisId)
-                    .ToList();
+                var conexiones = await Task.Run(() =>
+                    _context.ConexionesRed
+                        .Where(c => c.ResultadoAnalisisId == resultadoAnalisisId)
+                        .Select(c => new ConexionRedDtos
+                        {
+                            IpOrigen = c.IpOrigen,
+                            PuertoOrigen = c.PuertoOrigen,
+                            IpDestino = c.IpDestino,
+                            PuertoDestino = c.PuertoDestino,
+                            Protocolo = c.Protocolo,
+                            Pid = 0 // Set this appropriately if available in ConexionRed
+                        })
+                        .ToList()
+                );
 
                 return OperationResult<IEnumerable<ConexionRedDtos>>.Success(conexiones, "Conexiones obtenidas correctamente");
             }
